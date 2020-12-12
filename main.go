@@ -28,26 +28,26 @@ func merge(left, right []int) []int {
 	var i int // left
 	var j int // right
 
-	result := make([]int, size)
+	merged := make([]int, size)
 	for k := 0; k < size; k++ {
 		switch true {
 		case i == len(left):
-			result[k] = right[j]
+			merged[k] = right[j]
 			j++
 		case j == len(right):
-			result[k] = left[i]
+			merged[k] = left[i]
 			i++
 		case left[i] > right[j]:
-			result[k] = right[j]
+			merged[k] = right[j]
 			j++
 		case left[i] < right[j]:
-			result[k] = left[i]
+			merged[k] = left[i]
 			i++
 		case left[i] == right[j]:
-			result[k] = right[j]
+			merged[k] = right[j]
 			j++
 		}
 	}
 
-	return result
+	return merged
 }
